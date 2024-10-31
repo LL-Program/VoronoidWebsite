@@ -1,0 +1,663 @@
+/* Reset and General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-scrollbar {
+            display: none;
+    }
+    background-color: black;
+    scroll-behavior: smooth;
+}
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 15px 0;
+    background: transparent;
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+.navbar.scrolled {
+    background-color: rgb(39, 38, 38);
+    background: black;
+}
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    width: 120px;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    animation: fadeIn 1.5s ease 0.5s forwards;
+    opacity: 0;
+}
+.nav-links a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 8px 15px;
+    transition: color 0.3s, transform 0.3s;
+}
+.btn-github {
+    cursor: pointer;
+    display: flex;
+    gap: 0.5rem;
+    border: none;
+    font-family: inherit;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 100px;
+    font-weight: 800;
+    place-content: center;
+
+    padding: 0.75rem 1rem;
+    font-size: 0.825rem;
+    line-height: 1rem;
+
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.04),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    color: #fff;
+}
+
+.btn-github:hover {
+    box-shadow:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.08),
+        inset 0 0 0 1px rgba(78, 78, 78, 0.08);
+    color: #999998;
+    transform: translate(0, -0.25rem);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px 0;
+    transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 8px;
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+/* Landing Section Styling */
+#landing {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.landing-content h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: #fff;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+.landing-content p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    animation: fadeInUp 2s ease forwards;
+    opacity: 0;
+}
+
+.explore-btn {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #8e23f3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.3s, transform 0.3s;
+    animation: fadeInUp 2.5s ease forwards;
+    opacity: 0;
+}
+
+.explore-btn:hover {
+    background-color: #e60000;
+    transform: scale(1.05);
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Query for Text Scaling */
+@media (max-width: 768px) {
+    .landing-content h1 {
+        font-size: 2.5em;
+    }
+
+    .landing-content p {
+        font-size: 1.2em;
+    }
+}
+/* General Styles */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+    color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Headings */
+.section h2 {
+    font-size: 3em;
+    margin-bottom: 40px;
+    color: #8e23f3;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+/* Updates Section */
+.update-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.update-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Features Section */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+/* Screenshots Section */
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+.screenshot {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.screenshot:hover {
+    transform: scale(1.05);
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Initial State for Scroll Animation */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Final State when in View */
+.scrolled {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Section Styling with Delay for Staggered Animation */
+#updates.scroll-animate {
+    transition-delay: 0.1s;
+}
+
+#features.scroll-animate {
+    transition-delay: 0.3s;
+}
+
+#screenshots.scroll-animate {
+    transition-delay: 0.5s;
+}
+.feature-section {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+    color: #fff;
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-tag {
+    display: inline-block;
+    background-color: #8e23f3;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+    box-shadow:
+            0 0 100px 7px #8e23f3;
+}
+
+.feature-content h1 {
+    font-size: 2.5em;
+    color: #8e23f3;
+    margin-bottom: 20px;
+}
+
+.feature-content p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #ccc;
+}
+
+/* Feature Image */
+.feature-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.showcase-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Scroll Animation Styles */
+.scroll-animate {
+    opacity: 0;
+    visibility: hidden;
+    /* Ensures elements don’t cause layout shifts */
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    /* Fade in smoothly */
+}
+
+.scroll-animate.show {
+    opacity: 1;
+    visibility: visible;
+    /* Shows element without changing its position */
+}
+
+.sample-projects {
+    padding: 3rem 1rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 2rem;
+}
+
+.section-subtitle {
+    color: #9e6eff;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    font-size: 1rem;
+    color: #b0b0b0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.projects-container {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 300px;
+    width: 100%;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    color: white;
+    margin: 1rem;
+    text-decoration: none;
+}
+
+.project-description {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    margin: 0 1rem 1.5rem;
+}
+.project-link{
+    text-decoration: none;
+}
+/* Responsive Design */
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .projects-container {
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-title {
+        font-size: 3.5rem;
+    }
+
+    .projects-container {
+        gap: 2rem;
+    }
+
+    .project-card {
+        max-width: 360px;
+    }
+}
+/*Footer section*/
+footer {
+    background: #000000;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #8e23f3;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+/*Learning Section*/
+.online-learning {
+    padding: 2rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.header h1 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.view-all-link {
+    color: #9e6eff;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 1.5rem 0;
+}
+
+.course-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.course-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color: transparent
+    /* Transparent container */
+    border-radius: 8px;
+    align-items: flex-start;
+}
+
+.course-image {
+    width: 250px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.course-content {
+    flex: 1;
+}
+
+.course-content h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: white;
+    text-decoration: none;
+}
+
+.course-time {
+    font-size: 0.9rem;
+    color: #9e6eff;
+    margin-bottom: 1rem;
+}
+
+.course-description {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .course-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .course-image {
+        width: 100%;
+        height: auto;
+    }
+    .feature-image {
+        display: none;
+    }
+}
+#slideButton {
+    position: fixed;
+    top: -100px;
+    transition: top 0.5s ease;
+}
+
+#slideButton button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/*tools*/
+.highlighted {
+    color: rgb(124, 63, 238);
+}
+.show {
+    top: 20px;
+    /* Adjust the final position as needed */
+}
+
+.hidden {
+    top: -100px;
+}

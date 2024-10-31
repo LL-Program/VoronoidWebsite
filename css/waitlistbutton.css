@@ -1,0 +1,418 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+:root {
+    --shiny-cta-bg: #000000;
+    --shiny-cta-bg-subtle: #8e23f3;
+    --shiny-cta-fg: #ffffff;
+    --shiny-cta-highlight: #8e23f3;
+    --shiny-cta-highlight-subtle: #6767f3;
+}
+
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@property --gradient-angle-offset {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@property --gradient-percent {
+    syntax: "<percentage>";
+    initial-value: 5%;
+    inherits: false;
+}
+
+@property --gradient-shine {
+    syntax: "<color>";
+    initial-value: white;
+    inherits: false;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.shiny-cta {
+    --animation: gradient-angle linear infinite;
+    --duration: 3s;
+    --shadow-size: 2px;
+    isolation: isolate;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    outline-offset: 4px;
+    padding: 1.25rem 2.5rem;
+    font-family: inherit;
+    font-size: 1.125rem;
+    line-height: 1.2;
+    transition: background 0.3s ease;
+    border: 1px solid transparent;
+    border-radius: 360px;
+    color: var(--shiny-cta-fg);
+    background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box,
+        conic-gradient(from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+            transparent,
+            var(--shiny-cta-highlight) var(--gradient-percent),
+            var(--gradient-shine) calc(var(--gradient-percent) * 2),
+            var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+            transparent calc(var(--gradient-percent) * 4)) border-box;
+    box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
+    &::before,
+    &::after,
+    span::before {
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        inset-inline-start: 50%;
+        inset-block-start: 50%;
+        translate: -50% -50%;
+        z-index: -1;
+    }
+
+    &:active {
+        translate: 0 1px;
+    }
+}
+
+/* Dots pattern */
+.shiny-cta::before {
+    --size: calc(100% - var(--shadow-size) * 3);
+    --position: 2px;
+    --space: calc(var(--position) * 2);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle at var(--position) var(--position),
+            white calc(var(--position) / 4),
+            transparent 0) padding-box;
+    background-size: var(--space) var(--space);
+    background-repeat: space;
+    mask-image: conic-gradient(from calc(var(--gradient-angle) + 45deg),
+            black,
+            transparent 10% 90%,
+            black);
+    
+    border-radius: inherit;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+/* Inner shimmer */
+.shiny-cta::after {
+    --animation: shimmer linear infinite;
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(-50deg,
+            transparent,
+            var(--shiny-cta-highlight),
+            transparent);
+    mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+    opacity: 0.6;
+}
+
+.shiny-cta span {
+    z-index: 1;
+
+    &::before {
+        --size: calc(100% + 1rem);
+        width: var(--size);
+        height: var(--size);
+        box-shadow: inset 0 -1ex 2rem 4px var(--shiny-cta-highlight);
+        opacity: 0;
+    }
+}
+
+/* Animate */
+.shiny-cta {
+    --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
+    transition: var(--transition);
+    transition-property: --gradient-angle-offset, --gradient-percent,
+        --gradient-shine;
+
+    &,
+    &::before,
+    &::after {
+        animation: var(--animation) var(--duration),
+            var(--animation) calc(var(--duration) / 0.4) reverse paused;
+        animation-composition: add;
+    }
+
+    span::before {
+        transition: background 0.3s, transform 0.3s;
+        animation: fadeInUp 2.5s ease forwards;
+        transition: opacity var(--transition);
+        animation: calc(var(--duration) * 1.5) breathe linear infinite;
+    }
+}
+
+.shiny-cta:is(:hover, :focus-visible) {
+    --gradient-percent: 20%;
+    --gradient-angle-offset: 95deg;
+    --gradient-shine: var(--shiny-cta-highlight-subtle);
+
+    &,
+    &::before,
+    &::after {
+        animation-play-state: running;
+    }
+
+    span::before {
+        opacity: 1;
+    }
+}
+
+@keyframes gradient-angle {
+    to {
+        --gradient-angle: 360deg;
+    }
+}
+
+@keyframes shimmer {
+    to {
+        rotate: 360deg;
+    }
+}
+
+@keyframes breathe {
+
+    from,
+    to {
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.2;
+    }
+}
+.glow-filter {
+    position: relative;
+    display: inline-block;
+    scale: 1;
+
+    animation: onloadscale 1s ease-out forwards;
+}
+
+.glow-filter::before {
+    content: attr(data-text);
+    position: absolute;
+    pointer-events: none;
+    color: #fffaf6;
+    background: linear-gradient(0deg, #dfe5ee 0%, #fffaf6 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: url(#glow-4);
+    -moz-filter: url(#glow-4);
+    -webkit-filter: url(#glow-4);
+
+    opacity: 0;
+    animation: onloadopacity 1s ease-out forwards;
+}
+
+@keyframes onloadscale {
+    24% {
+        scale: 1;
+    }
+
+    100% {
+        scale: 1.02;
+    }
+}
+
+@keyframes onloadopacity {
+    24% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+/*Showcase section*/
+
+.input-wrapper {
+    width: fit-content;
+    height: 45px;
+    border-radius: 20px;
+    padding: 5px;
+    box-sizing: content-box;
+    display: flex;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    background-color: #292524;
+}
+
+.icon {
+    width: 30px;
+    fill: #8e23f3;
+    margin-left: 8px;
+    transition: all 0.3s;
+}
+
+.input {
+    max-width: 170px;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding-left: 15px;
+    background-color: #292524;
+    color: white;
+    font-size: 1em;
+}
+
+.input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #292524 inset;
+    -webkit-text-fill-color: #ffffff;
+}
+
+.Subscribe-btn {
+    height: 100%;
+    width: 120px;
+    border: none;
+    border-radius: 15px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    background-color: #8e23f3;
+    font-weight: 500;
+    font-family: inherit;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.arrow {
+    /* display: none; */
+    position: absolute;
+    margin-right: 150px;
+    transition: all 0.3s;
+}
+
+.input-wrapper:active .icon {
+    transform: scale(1.3);
+}
+
+.Subscribe-btn:hover {
+    color: #8e23f3;
+}
+
+.Subscribe-btn:hover .arrow {
+    margin-right: 0;
+    animation: jello-vertical 0.9s both;
+    transform-origin: right;
+}
+
+@keyframes jello-vertical {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    40% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    50% {
+        transform: scale3d(0.85, 1.15, 1);
+    }
+
+    65% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    75% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.Subscribe-btn:active {
+    transform: scale(0.9);
+}
+
+
+
+.button1 {
+    line-height: 1;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    padding-left: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.3s;
+}
+
+.button1__icon-wrapper {
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    color: #000;
+    background-color: #8e23f3;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.button1:hover {
+    background-color: #8e23f3;
+    color: black;
+}
+
+.button1:hover .button1__icon-wrapper {
+    color: #fff;
+    background-color: #000;
+}
+
+.button1__icon-svg--copy {
+    position: absolute;
+    transform: translate(-150%, 150%);
+}
+
+.button1:hover .button1__icon-svg:first-child {
+    transition: transform 0.3s ease-in-out;
+    transform: translate(150%, -150%);
+}
+
+.button1:hover .button1__icon-svg--copy {
+    transition: transform 0.3s ease-in-out 0.1s;
+    transform: translate(0);
+}

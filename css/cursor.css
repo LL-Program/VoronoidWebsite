@@ -1,0 +1,53 @@
+#test-area {
+    cursor: none;
+}
+
+#cursor {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    background-color: black;
+}
+
+
+@-webkit-keyframes hide {
+    from {
+        width: 16px;
+        height: 16px;
+    }
+
+    to {
+        width: 0px;
+        height: 0px;
+    }
+}
+
+@-webkit-keyframes show {
+    from {
+        width: 0px;
+        height: 0px;
+    }
+
+    to {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+
+.hide {
+    -webkit-animation: hide .5s;
+    -moz-animation: hide .5s;
+    -o-animation: hide .5s;
+    -ms-animation: hide .5s;
+}
+
+.show {
+    -webkit-animation: show .5s;
+    -moz-animation: show .5s;
+    -o-animation: show .5s;
+    -ms-animation: show .5s;
+}
