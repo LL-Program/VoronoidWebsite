@@ -661,3 +661,247 @@ footer {
 .hidden {
     top: -100px;
 }
+#slideGoogleButton {
+    position: fixed;
+    top: -100px;
+    transition: top 0.5s ease;
+}
+
+#slideGoogleButton GoogleButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/*tools*/
+.highlighted {
+    color: rgb(124, 63, 238);
+}
+.show {
+    top: 20px;
+    /* Adjust the final position as needed */
+}
+
+.hidden {
+    top: -100px;
+}
+/* From Uiverse.io by csozidev */
+/* Fancy Google hover GoogleButton made by: csozi | Website: www.csozi.hu*/
+
+.GoogleButton {
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    border-radius: 35px;
+    align-items: center;
+    border: solid black 2px;
+    outline: none;
+}
+
+.svg {
+    height: 25px;
+    margin-right: 10px;
+}
+
+.GoogleButton .text {
+    z-index: 10;
+    font-size: 14px;
+}
+
+.GoogleButton:hover .text {
+    animation: text forwards 0.3s;
+    /*color: white;*/
+}
+
+@keyframes text {
+    from {
+        color: black;
+    }
+
+    to {
+        color: white;
+    }
+}
+
+.svg {
+    z-index: 6;
+}
+
+.GoogleButton:hover::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 9%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border-radius: 300px;
+    animation: wave1 2.5s ease-in-out forwards;
+}
+
+.GoogleButton:hover::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 9%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border-radius: 300px;
+    animation: wave2 2.5s ease-in-out forwards;
+}
+
+@keyframes wave1 {
+    0% {
+        z-index: 1;
+        background: #EB4335;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    1% {
+        z-index: 1;
+        background: #EB4335;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    25% {
+        z-index: 1;
+        background: #EB4335;
+        width: 800px;
+        height: 800px;
+        opacity: 1;
+    }
+
+    26% {
+        z-index: 3;
+        background: #34A853;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    50% {
+        z-index: 3;
+        background: #34A853;
+        width: 800px;
+        height: 800px;
+        opacity: 1;
+    }
+
+    70% {
+        z-index: 3;
+        background: #34A853;
+        width: 800px;
+        height: 800px;
+        opacity: 1;
+    }
+
+    100% {
+        z-index: 3;
+        background: #34A853;
+        width: 800px;
+        height: 800px;
+        opacity: 1;
+    }
+}
+
+@keyframes wave2 {
+    0% {
+        z-index: 2;
+        background: #FBBC05;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    11% {
+        z-index: 2;
+        background: #FBBC05;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    35% {
+        z-index: 2;
+        background: #FBBC05;
+        width: 800px;
+        height: 800px;
+        opacity: 1;
+    }
+
+    39% {
+        z-index: 2;
+        background: #FBBC05;
+        width: 800px;
+        height: 800px;
+        opacity: 1;
+    }
+
+    40% {
+        z-index: 4;
+        background: #4285F4;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    64% {
+        z-index: 4;
+        background: #4285F4;
+        width: 800px;
+        height: 800px;
+        opacity: 1;
+    }
+
+    100% {
+        z-index: 4;
+        background: #4285F4;
+        width: 800px;
+        height: 800px;
+        opacity: 1;
+    }
+}
+
+.GoogleButton:hover .red {
+    animation: disappear 0.1s forwards;
+    animation-delay: 0.1s;
+}
+
+.GoogleButton:hover .yellow {
+    animation: disappear 0.1s forwards;
+    animation-delay: 0.3s;
+}
+
+.GoogleButton:hover .green {
+    animation: disappear 0.1s forwards;
+    animation-delay: 0.7s;
+}
+
+.GoogleButton:hover .blue {
+    animation: disappear 0.1s forwards;
+    animation-delay: 1.1s;
+}
+
+@keyframes disappear {
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(100);
+    }
+}
