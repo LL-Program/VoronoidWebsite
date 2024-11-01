@@ -258,6 +258,8 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
     import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
     import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+
 
     // Firebase configuration - replace with your actual config
     const firebaseConfig = {
@@ -306,7 +308,7 @@
                 }
             })
             .catch((error) => {
-                console.error("Error signing in with Google:", error);
+                alert("Error signing in with Google:", error);
             });
     });
 </script>
