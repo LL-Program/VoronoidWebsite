@@ -11,6 +11,7 @@ html {
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    touch-action: none;
     -webkit-scrollbar {
             display: none;
     }
@@ -554,6 +555,8 @@ footer {
 .header h1 {
     font-size: 2rem;
     color: #ffffff;
+    font-family: "Orbitron",
+        sans-serif;
 }
 
 .view-all-link {
@@ -633,33 +636,6 @@ footer {
     .feature-image {
         display: none;
     }
-}
-#slideButton {
-    position: fixed;
-    top: -100px;
-    transition: top 0.5s ease;
-}
-
-#slideButton button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-/*tools*/
-.highlighted {
-    color: rgb(124, 63, 238);
-}
-.show {
-    top: 20px;
-    /* Adjust the final position as needed */
-}
-
-.hidden {
-    top: -100px;
 }
 #slideGoogleButton {
     position: fixed;
@@ -905,3 +881,167 @@ footer {
         filter: brightness(100);
     }
 }
+
+
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 10000px;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    /* Slower scrolling */
+}
+
+.carousel img {
+    height: 80px;
+    margin: 0 20px;
+    transition: transform 0.3s;
+}
+
+.carousel img:hover {
+    transform: scale(1.2);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+        /* Scroll halfway (due to duplication) */
+    }
+}
+
+.carousel-duplicate {
+    display: flex;
+}
+
+/* From Uiverse.io by MrD4rio */
+.discordbutton {
+
+    font-family: inherit;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #4f4dd9 0%, #2b60aa 100%);
+    color: white;
+    padding: 0.8em 1.2em;
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.discordbutton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.discordbutton:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.discordbutton span {
+    display: block;
+    margin-left: 0.4em;
+    transition: all 0.3s;
+}
+
+.discordbutton svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+    transition: all 0.3s;
+}
+
+.discordbutton .svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 0.5em;
+    transition: all 0.3s;
+}
+
+.discordbutton:hover .svg-wrapper {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.discordbutton:hover svg {
+    transform: rotate(360deg);
+}
+
+/* credits to uiverse.io/profile/eirikvold */
+
+.twitterbutton {
+
+    font-family: inherit;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #000000 0%, #000000 100%);
+    color: white;
+    padding: 0.8em 1.2em;
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.twitterbutton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.twitterbutton:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.twitterbutton span {
+    display: block;
+    margin-left: 0.4em;
+    transition: all 0.3s;
+}
+
+.twitterbutton svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+    transition: all 0.3s;
+}
+
+.twitterbutton .svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 0.5em;
+    transition: all 0.3s;
+}
+
+.twitterbutton:hover .svg-wrapper {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.twitterbutton:hover svg {
+    transform: rotate(360deg);
+}
+
+/* credits to uiverse.io/profile/eirikvold */

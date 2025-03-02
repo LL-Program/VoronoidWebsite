@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Orbitron:wght@400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import 'normalize.css';
 
 :root {
@@ -461,15 +462,27 @@ article {
 
 .assets h3 {
     position: absolute;
-    left: 35%;
-    top: 0%;
+    left: 50%;
+    top: 40%;
     margin: 0;
     font-size: 8rem;
-    translate: -50% 0;
     text-transform: uppercase;
     font-family: 'Bebas Neue', sans-serif;
     color: white;
-    translate: calc(-50% + (var(--x) * -30px)) calc(var(--y) * -20px);
+    translate: -50% -50%;
+    transform: translate(calc(var(--x) * -30px), calc(var(--y) * -20px));
+}
+.assets h5 {
+    position: absolute;
+    left: 50%;
+    top: 14%;
+    margin: 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-family: "Orbitron", sans-serif;
+    color: rgb(184, 182, 182);
+    translate: -50% -50%;
+    transform: translate(calc(var(--x) * -30px), calc(var(--y) * -20px));
 }
 
 .content {
